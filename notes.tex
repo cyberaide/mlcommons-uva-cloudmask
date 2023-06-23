@@ -1,0 +1,32 @@
+SUBMISSION
+
+make our submission for this benchmark using the reference/baseline implementation that also uses the U-net model. We report both the scientific metric and performance metric for this benchmark. Where the scientific metric is the accuracy and the performance metric being scalability and training and inference time. We report the these metrics for two systems, Greene and Rivanna.
+
+
+METRICS
+
+Science metric is accuracy 
+Performance metric is scalability (time to train per HPC per GPU) %
+performance benefits of different systems.%
+time to train %
+Need to add all citations here^
+
+no focus is on hardware performance but important
+
+BAYESIAN
+
+    
+Narrative: How bayesian masks work - limitations - ML instead - other papers - and now us.
+- Limitations
+    - The Bayesian approach developed in the paper focuses on night-time (TIR-only) imagery; additionally day-time training/testing data for MLC's model is conducted;
+    - Secondly, the work is purely on cloud screening over ocean; although  data over land areas is used it is not utilized in this benchmark \TODO{we need to confirm};
+    - Thirdly, the observation vector for each pixel only has 3 components, each representing 3 thermal channels, aka brightness \TODO{does nt fis is aka and? or is it something different}. The data, includes also radiance and reflectance which is not used due to limitations of cloudmask theory as discussed in \cite{???}.
+
+What all approaches have been done already? And why should machine learning work here?
+
+We are particularly dealing with dataset XYZ, and what has been done with it before?
+
+We also want to how the performance of NYU HPC on the given deep learning algorithm. - Why is this important?
+
+A small description of what we do in this paper:
+In this paper, we present the results of benchmarking NYU HPC on the MLCommons platform for the cloudmasking benchmark. We also provide the code to do so.
