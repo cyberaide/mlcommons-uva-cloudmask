@@ -1,7 +1,15 @@
 \documentclass[sigplan,screen]{acmart}
 
+\def\isDraft{}
 
-\input{1-format}
+\ifdefined\isDraft
+   \usepackage{todonotes}
+\else
+  \usepackage[disable]{todonotes}
+\fi
+ 
+
+\input{laszewski-format}
 
 \begin{document}
 
@@ -121,27 +129,26 @@ This paper describes efforts to improve the MLCommons Science benchmark. This fo
 
 \listoftodos{List of todos}
 
-\section{Open-questions}
+\section{Tasks and open Questions}
 
-\TODO{Gregor put his thought about this in this paper including a function. \\ 
 
-1. Is the data randomly inputted to the model? answer in paper
 
-2. Is the random number generating different random numbers with different runs? TBD. but with 1 we generate different numbers
+\subsection{Task for completion}
 
-3. Is the random seed set properly? See the function I propose}
+\TODO{1. The analysis script is not committed.}
 
-\TODO{4. The run 3 produces good values, can we replicate the visualization of that 
-with smaller epoch runs? 
+\TODO{2. check all abbreviations and introduce if missing at first use}
 
-5. The analysis script is not committed.
-}
 
-\TODO{6. (no time to address) Does the utilization of the floating point numbers create numerical instabilities? Eg: Catastrophic cancellation}
+\subsection{Result}
 
-\TODO{7. (not time to address) Does it make a difference to have a 64-bit or 32-bit? 6.1. What are we using in bits?}
+\TODO{3. The run 3 produces good values, can we replicate the visualization of that with smaller epoch runs?}
 
-\TODO{7. check all abbreviations and introduce if missing at first use}
+
+\TODO{4. (no time to address) Does the utilization of the floating point numbers create numerical instabilities? Eg: Catastrophic cancellation}
+
+\TODO{5. (not time to address) Does it make a difference to have a 64-bit or 32-bit? 6.1. What are we using in bits?}
+
 
 \clearpage
 
@@ -613,20 +620,38 @@ The Figure~\ref{fig:epochs-vs-accuracy-a} is an example image.
 
 \subsection{Educational Lessons learned}
 
+\TODO{GvL: I favor removing most of this section and do not comment on the communication portion. and possibly only include the team separation and the requirements.}
 
-\TODO{what are the educational lessons learned from this example}
+This project contributed to the  high-level general educational lessons summarized in \cite{las23-insights-mlcommons-education}. 
 
-\TODO{What are the lessons learned from the particular approach used in this experience? E.g. how did splitup work. how did time management work ... what was the impact of the teammate leaving? things like this. Does the previous teammate need to be added to the acknowledgement? Maybe not as it then would reveal identity we could keep acknowledgment anonymous or not at all? Did the university program adequately prepare for HPC usage? Put some thoughts here ...}
+In the rest of this section, the discussion of of specific aspects of the project is conducted accumulating in specific educational lessons we derived from this project.
 
-\TODO{describe the organization of the team and if the team organization worked. Describe how work was performed.}
+The project was a two-semester project while the students team attempted to operate like a company executing a set set of requirements independently. The team followed a {\em strict} role division while different team members did not conduct another team members role. Team member roles included communication lead, programming lead, and research lead. An additional student team member was utilized as team supervisor to interface with the faculty at NYU when needed. The first author of the paper developed with the team the  requirements and verified the usefulness with MLCommons and the group as STFC.
 
-In addition to the team, the first author was always available for meetings and discussions. He engaged upon request in several hackathons to identify bugs and setup issues and scheduled several mandatory hackathons. These hackathons were attended by a single member of the NYU team. 
-\TODO{please correct.}
+As any project using HPC and DL, the project needed the customary time for on-ramping. This included topics such as learning how to use an HPC batch queues, accessing the HPC computer via terminal and ssh, learning how to use the Python ecosystem beyond just the language aspects, using deep learning in python, and improving the knowledge about GitHub for code management.
 
-\begin{comment}
-The team elected to schedule meetings mostly n a two-week schedule. In the second semester, a meeting did not take place till the 4ths week of the semester.
-\end{comment}
 
+The technical lead provided most of the on-ramping to the students to rapidly jumpstart the project. Although the first author was available at any time, the student team set meetings frequency every two weeks after the on-ramping period. However, at any time hackathons could be scheduled with the first author in order to overcome technical or other educational gaps. Hackathons were initially only utilized by the programmer and in the later phase by the research lead.
+
+The student team's requirement to only use the communication lead for communication, could not be effectively implemented due to the following issues: (a) The communication lead did not have the expertise needed to communicate the technical and research aspects (b) The communication lead did not participate in the second half of the project due to time constraint. To mitigate the issue the communication was hence mostly conducted directly between the programmer and the technical lead and in the later stages included also the researcher. The direct communication with the programming and research lead significantly improved the quality of the project and without that direct communication, the project could not have been executed.
+
+To overcome the resulting communication gap of two months, the team voluntarily extended the execution of the project even after graduation which shows the dedication of the team and addresses needed mitigation.
+
+The minimal agreed upon requirements that were set at the beginning of the project includes:
+
+\begin{itemize}
+
+\item improve the handling of the configuration file for hyperparameters,
+\item port the cloudmask application to Greene,
+\item conduct hyperparameter modifications and analysis to identify a combination of  hyperparameters leading to very good accuracy values,
+\item showcase that the code on Greene can be executed by at least one more team member just following the manual to demonstrate the reproducability which is governed by the FAIR \cite{} principle,
+\item create a submission of the results to MLCommons,
+\item assure that all code and analysis scripts are included in the development directory used to develop the MLCommons code. 
+\item Write a paper about the effort
+
+\end{itemize}
+
+The major lesson we learned in the way this project was operated by the student team is as follows.  If communication between the programming and research lead with the technical lead was allowed, significant progress in the project was accomplished. When trying to shift the communication to the communications lead only, significant delays and divergence from the original set project goals occurred. The utilization of hackathons with the technical lead made it possible to achieve the requirements and mitigate the communications gap. Hackathons were also the solution to conduct on-ramping of the programming lead mitigating the educational gap needed to succeed in this project.
 
 \section{Conclusion}
 \label{sec:conclusion}
